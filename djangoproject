@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo enter a valid path to your projects folder
+read pathname
+cd $pathname
+pwd
+echo enter project directoryname:
+read directoryname
+mkdir $directoryname
+cd $directoryname
+pwd
+echo enter virtualenv name:
+read virtualenv
+python3 -m venv $virtualenv
+. $virtualenv/bin/activate
+pip3 install django
+echo enter projectname:
+read projectname
+django-admin startproject $projectname .
+echo enter appname:
+read appname
+python3 manage.py startapp $appname 
+pwd
+ls
